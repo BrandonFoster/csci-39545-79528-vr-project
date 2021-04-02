@@ -15,7 +15,7 @@ public class Spawner : MonoBehaviour
     private float spawnYpos;
 
     public float minTime = 1f;
-    public float maxTime = 3f;
+    public float maxTime = 4f;
     private float timer = 0f;
     private float spawnCounter;
 
@@ -72,7 +72,7 @@ public class Spawner : MonoBehaviour
                 {
                     minTime -= 0.1f;
                 }
-                if (maxTime >= 1f)
+                if (maxTime >= 2f)
                 {
                     maxTime -= 0.1f;
                 }
@@ -82,7 +82,7 @@ public class Spawner : MonoBehaviour
         {
             mediumSpeedUp = true;
             minTime = 0.5f;
-            maxTime = 2f;
+            maxTime = 3f;
         }
     }
 }
