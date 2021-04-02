@@ -72,7 +72,7 @@ public class Spawner : MonoBehaviour
                 {
                     minTime -= 0.1f;
                 }
-                if (maxTime >= 2f)
+                if (maxTime >= 1.5f)
                 {
                     maxTime -= 0.1f;
                 }

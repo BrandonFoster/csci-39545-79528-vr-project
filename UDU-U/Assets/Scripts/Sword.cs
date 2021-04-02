@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Sword : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        Destroy(collision.gameObject);
+        if(other.gameObject.layer == 9)
+        {
+            Destroy(other.gameObject);
+        }
     }
 }
