@@ -28,9 +28,22 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void SetTarget(GameObject newTarget)
+    public void SetTargetAndChange(GameObject newTarget, bool medium, bool hard)
     {
         target = newTarget.transform;
+        if (hard)
+        {
+            gameObject.GetComponent<Renderer>().material.color = Color.red;
+        }
+        else if (medium)
+        {
+            gameObject.GetComponent<Renderer>().material.color = Color.yellow;
+        }
+        else
+        {
+            gameObject.GetComponent<Renderer>().material.color = Color.green;
+        }
+        
     }
 
     private void OnCollisionEnter(Collision collision)
