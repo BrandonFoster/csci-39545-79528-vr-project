@@ -14,8 +14,8 @@ public class Spawner : MonoBehaviour
     private float spawnXpos;
     private float spawnYpos;
 
-    public float minTime = 0f;
-    public float maxTime = 2f;
+    public float minTime = 1f;
+    public float maxTime = 5f;
     private float timer = 0f;
     private float spawnCounter;
 
