@@ -8,6 +8,9 @@ public class Enemy : MonoBehaviour
     public float maxSpeed = 3f;
     public Transform target = null;
 
+    public GameObject deathFX;
+    public AudioClip deathSound;
+
     public float speed;
 
     // Start is called before the first frame update
@@ -48,6 +51,10 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        deathFX.GetComponent<Renderer>().material.color = gameObject.GetComponent<Renderer>().material.color;
+        GameObject deathEffect = Instantiate(deathFX, transform.position, transform.rotation);
+        AudioSource.PlayClipAtPoint(deathSound, transform.position, 0.5f);
+
         Destroy(gameObject);
     }
 }
