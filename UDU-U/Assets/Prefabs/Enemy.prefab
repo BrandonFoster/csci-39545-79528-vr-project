@@ -127,4 +127,5 @@ MonoBehaviour:
   maxSpeed: 3
   target: {fileID: 0}
   deathFX: {fileID: 3131614540954421076, guid: ee119c43fe223d04881d3db15ed67ff0, type: 3}
+  deathSound: {fileID: 8300000, guid: 958408b32ccf3714ea02821877b0870c, type: 3}
   speed: 0
