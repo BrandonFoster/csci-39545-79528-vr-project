@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class ShooterEnemy : MonoBehaviour
 {
     public float minSpeed = 1f;
     public float maxSpeed = 3f;
@@ -12,7 +12,6 @@ public class Enemy : MonoBehaviour
     public AudioClip deathSound;
 
     public float speed;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +45,7 @@ public class Enemy : MonoBehaviour
         {
             gameObject.GetComponent<Renderer>().material.color = Color.green;
         }
-        
+
     }
 
     private void OnCollisionEnter(Collision collision)
