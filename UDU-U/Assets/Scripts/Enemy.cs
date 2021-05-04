@@ -51,10 +51,14 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        deathFX.GetComponent<Renderer>().material.color = gameObject.GetComponent<Renderer>().material.color;
-        GameObject deathEffect = Instantiate(deathFX, transform.position, transform.rotation);
-        AudioSource.PlayClipAtPoint(deathSound, transform.position, 0.5f);
+        if (collision.gameObject.layer == 10)
+        {
+            GameObject deathEffect = Instantiate(deathFX, transform.position, transform.rotation);
+            deathEffect.GetComponent<Renderer>().material.color = gameObject.GetComponent<Renderer>().material.color;
+            AudioSource.PlayClipAtPoint(deathSound, transform.position, 0.5f);
 
-        Destroy(gameObject);
+            Destroy(gameObject);
+            Destroy(deathEffect, 2);
+        }
     }
 }

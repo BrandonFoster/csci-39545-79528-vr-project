@@ -31,6 +31,8 @@ public class Slicer : MonoBehaviour
                 MakeItPhysical(lowerHullGameobject);
 
                 Destroy(objectToBeSliced.gameObject);
+                Destroy(upperHullGameobject, 2);
+                Destroy(lowerHullGameobject, 2);
             }
         }
     }
