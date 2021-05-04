@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -22,7 +22,7 @@ public class SceneLoader : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log(collision.gameObject.layer);
-        if(collision.gameObject.layer == 15)
+        if(collision.gameObject.layer == 13)
         {
             LoadScene(collision.gameObject.name);
         }
