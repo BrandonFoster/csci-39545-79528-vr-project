@@ -22,7 +22,8 @@ public class SceneLoader : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log(collision.gameObject.layer);
-        if(collision.gameObject.layer == 13)
+        
+        if(collision.gameObject.layer == LayerMask.NameToLayer("SceneChanger"))
         {
             LoadScene(collision.gameObject.name);
         }
