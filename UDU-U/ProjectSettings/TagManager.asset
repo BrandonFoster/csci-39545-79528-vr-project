@@ -6,7 +6,11 @@ TagManager:
   tags:
   - Maze Key
   - Maze Lock
+<<<<<<< HEAD
   - Lighter
+=======
+  - enemy
+>>>>>>> 8c2eaa04a4b9c7d8c36f808b7b74256bf9bfbd83
   layers:
   - Default
   - TransparentFX
@@ -21,10 +25,10 @@ TagManager:
   - Weapons
   - Platform
   - Player
+  - Sliceable
+  - Sword
+  - SceneChanger
   - SceneCollider
-  - 
-  - 
-  - 
   - 
   - 
   - 
