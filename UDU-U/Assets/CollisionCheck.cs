@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class CollisionCheck : MonoBehaviour
 {
+    public GameObject invisWall;
+    public GameObject LeftDoor;
+    public GameObject rightDoor;
     public GameObject door;
     public GameObject key;
+    public AudioSource breaking;
     void OnTriggerEnter(Collider col)
     {
         Debug.Log("Test SHOULD BE TRIGGER, colliding with: " + col.gameObject.name);
@@ -13,6 +17,10 @@ public class CollisionCheck : MonoBehaviour
         {
             door.SetActive(false);
             key.SetActive(false);
+            LeftDoor.SetActive(false);
+            rightDoor.SetActive(false);
+            invisWall.SetActive(false);
+            breaking.Play();
         }
     }
 }
