@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - enemy
+  - Lighter
+  - Maze Lock
+  - Maze Key
   layers:
   - Default
   - TransparentFX
@@ -13,15 +17,15 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Grab
+  - Enemy
+  - Weapon
+  - Platform
+  - Player
+  - Sliceable
+  - Sword
+  - SceneChanger
+  - SceneCollider
   - 
   - 
   - 
