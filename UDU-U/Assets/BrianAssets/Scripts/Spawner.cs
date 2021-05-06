@@ -72,11 +72,11 @@ public class Spawner : MonoBehaviour
             {
                 (Instantiate(rock4, new Vector3(spawnXpos, spawnYpos, transform.position.z), Quaternion.identity)).SetTarget(player);
             }
-            if (hardSpeedUp)
+            else if (hardSpeedUp)
             {
                 (Instantiate(rock3, new Vector3(spawnXpos, spawnYpos, transform.position.z), Quaternion.identity)).SetTarget(player);
             }
-            if (mediumSpeedUp)
+            else if (mediumSpeedUp)
             {
                 (Instantiate(rock2, new Vector3(spawnXpos, spawnYpos, transform.position.z), Quaternion.identity)).SetTarget(player);
             }
