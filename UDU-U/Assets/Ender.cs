@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TKCol : MonoBehaviour
+public class Ender : MonoBehaviour
 {
     private bool click = false;
     public GameObject statueKey;
