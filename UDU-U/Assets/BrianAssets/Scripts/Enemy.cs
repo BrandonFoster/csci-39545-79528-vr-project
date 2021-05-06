@@ -11,8 +11,6 @@ public class Enemy : MonoBehaviour
     public GameObject deathFX;
     public AudioClip deathSound;
 
-    public float speed;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -26,27 +24,14 @@ public class Enemy : MonoBehaviour
         {
             transform.LookAt(target);
 
-            speed = Random.Range(minSpeed, maxSpeed);
+            float speed = Random.Range(minSpeed, maxSpeed);
             transform.position += transform.forward * speed * Time.deltaTime;
         }
     }
 
-    public void SetTargetAndChange(GameObject newTarget, bool medium, bool hard)
+    public void SetTarget(GameObject newTarget)
     {
         target = newTarget.transform;
-        if (hard)
-        {
-            gameObject.GetComponent<Renderer>().material.color = Color.red;
-        }
-        else if (medium)
-        {
-            gameObject.GetComponent<Renderer>().material.color = Color.yellow;
-        }
-        else
-        {
-            gameObject.GetComponent<Renderer>().material.color = Color.green;
-        }
-        
     }
 
     private void OnCollisionEnter(Collision collision)
