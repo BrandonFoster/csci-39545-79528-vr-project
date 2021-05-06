@@ -5,7 +5,7 @@ using UnityEngine;
 public class LightSaber : MonoBehaviour
 {
 
-    private GameObject laser;
+    public GameObject laser;
     private GameObject slicer;
     private Vector3 fullSize;
     public bool activate = false;
@@ -22,7 +22,6 @@ public class LightSaber : MonoBehaviour
         source = gameObject.AddComponent<AudioSource>();
         source.spatialBlend = 1;
         source.volume = 0.3f;
-        laser = transform.Find("SingleLine-LightSaber").gameObject;
         slicer = transform.Find("Slicer").gameObject;
         fullSize = laser.transform.localScale;
         laser.transform.localScale = new Vector3(fullSize.x, 0, fullSize.z);
@@ -50,11 +49,11 @@ public class LightSaber : MonoBehaviour
         {
             laser.SetActive(true);
             slicer.SetActive(true);
-            laser.transform.localScale += new Vector3(0, 0.001f, 0);
+            laser.transform.localScale += new Vector3(0, 0.05f, 0);
         }
         else if (!activate && laser.transform.localScale.y > 0)
         {
-            laser.transform.localScale += new Vector3(0, -0.001f, 0);
+            laser.transform.localScale += new Vector3(0, -0.05f, 0);
         }
         else if (activate == false)
         {
