@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class torchLight : MonoBehaviour
 {
+    public GameObject lightSource;
     private bool lit = false;
-    public GameObject areaLight;
     public AudioSource litSound;
     void OnTriggerEnter(Collider col)
     {
@@ -14,14 +14,16 @@ public class torchLight : MonoBehaviour
         {
             if (lit == false)
             {
-                lit = true;
                 litSound.Play();
+                lit = true;
             }
             
         }
     }
+
     void Update()
     {
-        areaLight.SetActive(lit);
+        lightSource.SetActive(lit);
     }
+
 }

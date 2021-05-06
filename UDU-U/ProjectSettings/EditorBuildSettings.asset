@@ -11,10 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ShooterScene.unity
     guid: 66d58e5dd5a66954c9e6011758e41876
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Hub.unity
     guid: f77ed1d1f80e257419d280e024860b18
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/VR Napat Scene.unity
     guid: d47cf3b50b9c4be4f8cfd6590674dee8
   m_configObjects:
