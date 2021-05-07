@@ -12,7 +12,7 @@ public class Gun : MonoBehaviour
 
     public void Fire()
     {
-        AudioSource.PlayClipAtPoint(shootSound, transform.position, 0.5f);
+        AudioSource.PlayClipAtPoint(shootSound, transform.position, 0.3f);
         GameObject spawnedBullet = Instantiate(bullet, barrel.position, bulletPivot.rotation);
         spawnedBullet.GetComponent<Rigidbody>().velocity = speed * barrel.forward;
         Destroy(spawnedBullet, 2);

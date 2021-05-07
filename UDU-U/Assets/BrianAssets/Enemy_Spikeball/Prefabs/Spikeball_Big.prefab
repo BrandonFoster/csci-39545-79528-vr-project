@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 400000}
   - component: {fileID: 3300000}
   - component: {fileID: 2300000}
-  - component: {fileID: 2380800205890129156}
-  - component: {fileID: 7298787212860920714}
-  - component: {fileID: 6533958609155282112}
+  - component: {fileID: -1174509155896974477}
+  - component: {fileID: -4566850787525330911}
+  - component: {fileID: -426417526743012931}
   m_Layer: 9
   m_Name: Spikeball_Big
   m_TagString: enemy
@@ -30,8 +30,9 @@ Transform:
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.10584091, y: 0.10584091, z: 0.10584091}
-  m_Children: []
+  m_LocalScale: {x: 0.12115494, y: 0.12115494, z: 0.12115494}
+  m_Children:
+  - {fileID: 353592544575697916}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -83,20 +84,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &2380800205890129156
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100000}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.634298, y: 2.710435, z: 2.9135046}
-  m_Center: {x: -0.046264865, y: 0.015826294, z: 0.00999076}
---- !u!54 &7298787212860920714
+--- !u!54 &-1174509155896974477
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,7 +100,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6533958609155282112
+--- !u!135 &-4566850787525330911
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.0467331
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-426417526743012931
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,6 +128,37 @@ MonoBehaviour:
   minSpeed: 1
   maxSpeed: 3
   target: {fileID: 0}
+  laser: {fileID: 4780712655118025207, guid: d30e9594de770d14a9be3eaafcc4c379, type: 3}
+  laserPivot: {fileID: 7449900038909126258}
   deathFX: {fileID: 3131614540954421076, guid: ee119c43fe223d04881d3db15ed67ff0, type: 3}
   deathSound: {fileID: 8300000, guid: 958408b32ccf3714ea02821877b0870c, type: 3}
-  speed: 0
+--- !u!1 &7449900038909126258
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 353592544575697916}
+  m_Layer: 0
+  m_Name: LaserPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &353592544575697916
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7449900038909126258}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 12.414682, y: 12.414682, z: 12.4146805}
+  m_Children: []
+  m_Father: {fileID: 400000}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}

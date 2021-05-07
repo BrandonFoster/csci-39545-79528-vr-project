@@ -8,13 +8,28 @@ public class Enemy : MonoBehaviour
     public float maxSpeed = 3f;
     public Transform target = null;
 
+    public GameObject laser;
+    public GameObject laserPivot;
     public GameObject deathFX;
     public AudioClip deathSound;
+    Spawner spawner;
+    private bool finalSpeedUp = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(target != null)
+        {
+            transform.LookAt(target);
+        }
+
+        spawner = FindObjectOfType<Spawner>();
+        finalSpeedUp = spawner.getFinal();
+        if (finalSpeedUp)
+        {
+            GameObject spawnedBullet = Instantiate(laser, transform.position, laserPivot.transform.rotation);
+            spawnedBullet.GetComponent<Rigidbody>().velocity = 4 * transform.forward;
+        }
     }
 
     // Update is called once per frame

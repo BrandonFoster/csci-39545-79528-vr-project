@@ -37,7 +37,23 @@ public class Asteroid : MonoBehaviour
         if (collision.gameObject.layer == 10)
         {
             GameObject deathEffect = Instantiate(deathFX, transform.position, transform.rotation);
-            deathEffect.GetComponent<Renderer>().material.color = gameObject.GetComponent<Renderer>().material.color;
+
+            if(gameObject.name == "Glowing Rock Blue 6(Clone)")
+            {
+                deathEffect.GetComponent<Renderer>().material.color = Color.blue;
+            }
+            if (gameObject.name == "Glowing Rock Green 6(Clone)")
+            {
+                deathEffect.GetComponent<Renderer>().material.color = Color.green;
+            }
+            if (gameObject.name == "Glowing Rock Orange 6(Clone)")
+            {
+                deathEffect.GetComponent<Renderer>().material.color = Color.red;
+            }
+            if (gameObject.name == "Glowing Rock Purple 6(Clone)")
+            {
+                deathEffect.GetComponent<Renderer>().material.color = Color.magenta;
+            }
             AudioSource.PlayClipAtPoint(deathSound, transform.position, 0.5f);
 
             Destroy(gameObject);

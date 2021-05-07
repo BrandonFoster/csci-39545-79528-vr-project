@@ -7,6 +7,7 @@ public class LightSaber : MonoBehaviour
 
     public GameObject laser;
     private GameObject slicer;
+    public GameObject laserCollider;
     private Vector3 fullSize;
     public bool activate = false;
 
@@ -33,11 +34,11 @@ public class LightSaber : MonoBehaviour
         laserControl();
 
         var velocity = gameObject.GetComponent<Rigidbody>().velocity;
-        if(activate && velocity.magnitude > 6)
+        if(activate && velocity.magnitude > 1)
         {
-            source.PlayOneShot(saberMovingSound);
+            source.PlayOneShot(saberMovingSound, 0.1f);
         }
-        if (!source.isPlaying)
+        if (activate && !source.isPlaying)
         {
             source.PlayOneShot(saberHum);
         }
@@ -49,6 +50,7 @@ public class LightSaber : MonoBehaviour
         {
             laser.SetActive(true);
             slicer.SetActive(true);
+            laserCollider.SetActive(true);
             laser.transform.localScale += new Vector3(0, 0.05f, 0);
         }
         else if (!activate && laser.transform.localScale.y > 0)
@@ -59,6 +61,7 @@ public class LightSaber : MonoBehaviour
         {
             laser.SetActive(false);
             slicer.SetActive(false);
+            laserCollider.SetActive(false);
         }
     }
 
@@ -73,5 +76,13 @@ public class LightSaber : MonoBehaviour
             source.PlayOneShot(saberEnd);
         }
         activate = !activate;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.layer == LayerMask.NameToLayer("EnemyLaser"))
+        {
+            Destroy(collision.gameObject, 2);
+        }
     }
 }

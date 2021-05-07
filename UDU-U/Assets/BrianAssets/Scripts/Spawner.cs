@@ -61,7 +61,7 @@ public class Spawner : MonoBehaviour
         spawnXpos = Random.Range(minXpos, maxXpos);
         spawnYpos = Random.Range(minYpos, maxYpos);
 
-        int randNum = Random.Range(0, 2);
+        int randNum = Random.Range(0, 3);
         if(randNum == 0)
         {
             (Instantiate(enemyPrefab, new Vector3(spawnXpos, spawnYpos, transform.position.z), Quaternion.identity)).SetTarget(player);
@@ -83,7 +83,6 @@ public class Spawner : MonoBehaviour
             else
             {
                 (Instantiate(rock1, new Vector3(spawnXpos, spawnYpos, transform.position.z), Quaternion.identity)).SetTarget(player);
-
             }
         }
     }
@@ -119,5 +118,15 @@ public class Spawner : MonoBehaviour
             minTime = 0.5f;
             maxTime = 3f;
         }
+    }
+
+    public bool getFinal()
+    {
+        return finalSpeedUp;
+    }
+
+    public float getTime()
+    {
+        return timer;
     }
 }
