@@ -1,28 +1,55 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     public int health = 500;
-    public GameObject gameOverText;
+    public int points = 0;
+    public GameObject gameOver;
+    public Text gameOverText;
+    public Text timerText;
+
     public GameObject spawner;
+    public GameObject startCube;
+    public GameObject backCube;
+
+    private Spawner spawnTimer;
+
+    public GameObject heart1;
+    public GameObject heart2;
+    public GameObject heart3;
+    public GameObject heart4;
+    public GameObject heart5;
 
     // Start is called before the first frame update
     void Start()
     {
-        gameOverText.SetActive(false);
+        gameOver.SetActive(false);
+        spawnTimer = FindObjectOfType<Spawner>();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void Update()
     {
-        Destroy(collision.gameObject);
-
-        health -= 100;
-
-        if (health == 0)
+        if (!spawnTimer)
         {
-            gameOverText.SetActive(true);
+            spawnTimer = FindObjectOfType<Spawner>();
+        }
+        if (spawnTimer)
+        {
+            float timer = spawnTimer.getTime();
+            int sec = (int)(timer / 1);
+            int min = sec / 60;
+            sec = sec % 60;
+            if (sec > 9)
+            {
+                timerText.text = (min) + ":" + (sec) + "  " + points;
+            }
+            else
+            {
+                timerText.text = (min) + ":0" + (sec) + "  " + points;
+            }
         }
     }
 
@@ -34,8 +61,43 @@ public class Player : MonoBehaviour
 
         if (health == 0)
         {
+            spawnTimer.startStopTimer();
+            spawnTimer.resetTimer();
+
+            gameOverText.text = "GAME OVER\nSURVIVED: " + timerText.text.Substring(0, 4) + "\nPOINTS: " + points;
+
             spawner.SetActive(false);
-            gameOverText.SetActive(true);
+            gameOver.SetActive(true);
+            startCube.SetActive(true);
+            backCube.SetActive(true);
+            heart1.SetActive(false);
+            health = 500;
         }
+        else if(health == 100)
+        {
+            heart2.SetActive(false);
+        }
+        else if (health == 200)
+        {
+            heart3.SetActive(false);
+        }
+        else if (health == 300)
+        {
+            heart4.SetActive(false);
+        }
+        else if (health == 400)
+        {
+            heart5.SetActive(false);
+        }
+    }
+
+    public void addPoint()
+    {
+        points += 100;
+    }
+
+    public void resetHealth()
+    {
+        health = 500;
     }
 }

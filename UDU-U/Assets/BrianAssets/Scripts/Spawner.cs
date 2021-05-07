@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Spawner : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class Spawner : MonoBehaviour
     private float timer = 0f;
     private float spawnCounter;
 
+    bool continueTimer = false;
     bool mediumSpeedUp = false;
     bool hardSpeedUp = false;
     bool finalSpeedUp = false;
@@ -37,7 +39,7 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!mediumSpeedUp || !hardSpeedUp || !finalSpeedUp)
+        if (continueTimer)
         {
             timer += Time.deltaTime;
         }
@@ -128,5 +130,20 @@ public class Spawner : MonoBehaviour
     public float getTime()
     {
         return timer;
+    }
+
+    public void startStopTimer()
+    {
+        continueTimer = !continueTimer;
+    }
+
+    public void resetTimer()
+    {
+        timer = 0f;
+    }
+
+    public bool getContinueTime()
+    {
+        return continueTimer;
     }
 }

@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     public GameObject deathFX;
     public AudioClip deathSound;
     Spawner spawner;
+    Player player;
     private bool finalSpeedUp = false;
 
     // Start is called before the first frame update
@@ -23,9 +24,10 @@ public class Enemy : MonoBehaviour
             transform.LookAt(target);
         }
 
+        player = FindObjectOfType<Player>();
         spawner = FindObjectOfType<Spawner>();
         finalSpeedUp = spawner.getFinal();
-        if (finalSpeedUp)
+        if (!finalSpeedUp)
         {
             GameObject spawnedBullet = Instantiate(laser, transform.position, laserPivot.transform.rotation);
             spawnedBullet.GetComponent<Rigidbody>().velocity = 4 * transform.forward;
@@ -53,6 +55,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.layer == 10)
         {
+            player.addPoint();
             GameObject deathEffect = Instantiate(deathFX, transform.position, transform.rotation);
             deathEffect.GetComponent<Renderer>().material.color = gameObject.GetComponent<Renderer>().material.color;
             AudioSource.PlayClipAtPoint(deathSound, transform.position, 0.5f);

@@ -11,9 +11,12 @@ public class Asteroid : MonoBehaviour
     public GameObject deathFX;
     public AudioClip deathSound;
 
+    private Player player;
+
     // Start is called before the first frame update
     void Start()
     {
+        player = FindObjectOfType<Player>();
         transform.LookAt(target);
     }
 
@@ -36,6 +39,7 @@ public class Asteroid : MonoBehaviour
     {
         if (collision.gameObject.layer == 10)
         {
+            player.addPoint();
             GameObject deathEffect = Instantiate(deathFX, transform.position, transform.rotation);
 
             if(gameObject.name == "Glowing Rock Blue 6(Clone)")
