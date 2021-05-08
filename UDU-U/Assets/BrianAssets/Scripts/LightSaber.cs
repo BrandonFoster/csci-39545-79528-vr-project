@@ -34,9 +34,9 @@ public class LightSaber : MonoBehaviour
         laserControl();
 
         var velocity = gameObject.GetComponent<Rigidbody>().velocity;
-        if(activate && velocity.magnitude > 1)
+        if(activate && velocity.magnitude > 1.5)
         {
-            source.PlayOneShot(saberMovingSound, 0.1f);
+            source.PlayOneShot(saberMovingSound, 0.3f);
         }
         if (activate && !source.isPlaying)
         {
