@@ -140,6 +140,9 @@ public class Spawner : MonoBehaviour
     public void resetTimer()
     {
         timer = 0f;
+        mediumSpeedUp = false;
+        hardSpeedUp = false;
+        finalSpeedUp = false;
     }
 
     public bool getContinueTime()
