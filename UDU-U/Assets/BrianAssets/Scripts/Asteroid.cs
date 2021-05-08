@@ -37,9 +37,12 @@ public class Asteroid : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == 10)
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Weapon"))
         {
-            player.addPoint();
+            if (player)
+            {
+                player.addPoint();
+            }
             GameObject deathEffect = Instantiate(deathFX, transform.position, transform.rotation);
 
             if(gameObject.name == "Glowing Rock Blue 6(Clone)")

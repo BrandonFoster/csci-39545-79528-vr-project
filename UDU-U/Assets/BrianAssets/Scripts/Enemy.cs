@@ -53,9 +53,12 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == 10)
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Weapon"))
         {
-            player.addPoint();
+            if (player)
+            {
+                player.addPoint();
+            }
             GameObject deathEffect = Instantiate(deathFX, transform.position, transform.rotation);
             deathEffect.GetComponent<Renderer>().material.color = gameObject.GetComponent<Renderer>().material.color;
             AudioSource.PlayClipAtPoint(deathSound, transform.position, 0.5f);
