@@ -9,12 +9,7 @@ public class StartGame : MonoBehaviour
     public GameObject gameOver;
 
     Spawner spawnTimer;
-
-    public GameObject heart1;
-    public GameObject heart2;
-    public GameObject heart3;
-    public GameObject heart4;
-    public GameObject heart5;
+    Player player;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -24,13 +19,9 @@ public class StartGame : MonoBehaviour
         gameObject.SetActive(false);
 
         spawnTimer = FindObjectOfType<Spawner>();
+        player = FindObjectOfType<Player>();
 
         spawnTimer.startStopTimer();
-
-        heart1.SetActive(true);
-        heart2.SetActive(true);
-        heart3.SetActive(true);
-        heart4.SetActive(true);
-        heart5.SetActive(true);
+        player.resetGame();
     }
 }

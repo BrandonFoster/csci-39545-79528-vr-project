@@ -65,15 +65,11 @@ public class Player : MonoBehaviour
 
             gameOverText.text = "GAME OVER\nSURVIVED: " + timerText.text.Substring(0, 4) + "\nPOINTS: " + points;
 
-            spawnTimer.resetTimer();
-
             spawner.SetActive(false);
             gameOver.SetActive(true);
             startCube.SetActive(true);
             backCube.SetActive(true);
             heart1.SetActive(false);
-            health = 500;
-            points = 0;
         }
         else if(health == 100)
         {
@@ -98,8 +94,17 @@ public class Player : MonoBehaviour
         points += 100;
     }
 
-    public void resetHealth()
+    public void resetGame()
     {
+        spawnTimer = FindObjectOfType<Spawner>();
+        spawnTimer.resetTimer();
+
         health = 500;
+        points = 0;
+        heart1.SetActive(true);
+        heart2.SetActive(true);
+        heart3.SetActive(true);
+        heart4.SetActive(true);
+        heart5.SetActive(true);
     }
 }
