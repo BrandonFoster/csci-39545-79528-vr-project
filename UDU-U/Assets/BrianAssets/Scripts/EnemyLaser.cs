@@ -16,9 +16,10 @@ public class EnemyLaser : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
         gameObject.GetComponent<Rigidbody>().velocity = -(4 * transform.up);
-        collision.gameObject.layer = LayerMask.NameToLayer("Weapon");
+        other.gameObject.layer = LayerMask.NameToLayer("Weapon");
+        gameObject.GetComponent<Collider>().isTrigger = false;
     }
 }

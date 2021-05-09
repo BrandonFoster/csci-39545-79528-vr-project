@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour
         {
             GameObject spawnedBullet = Instantiate(laser, transform.position, laserPivot.transform.rotation);
             spawnedBullet.GetComponent<Rigidbody>().velocity = 4 * transform.forward;
+            Destroy(spawnedBullet, 5);
         }
     }
 
