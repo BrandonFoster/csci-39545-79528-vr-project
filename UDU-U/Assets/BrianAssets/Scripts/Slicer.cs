@@ -31,7 +31,7 @@ public class Slicer : MonoBehaviour
                 MakeItPhysical(upperHullGameobject);
                 MakeItPhysical(lowerHullGameobject);
 
-                //AudioSource.PlayClipAtPoint(saberSound, objectToBeSliced.transform.position, 0.5f);
+                AudioSource.PlayClipAtPoint(saberSound, objectToBeSliced.transform.position, 0.5f);
 
                 Destroy(objectToBeSliced.gameObject);
                 Destroy(upperHullGameobject, 2);

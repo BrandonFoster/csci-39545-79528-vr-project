@@ -16,6 +16,7 @@ public class LightSaber : MonoBehaviour
     public AudioClip saberHum;
     public AudioClip saberStart;
     public AudioClip saberEnd;
+    public AudioClip laserHit;
 
     // Start is called before the first frame update
     void Start()
@@ -82,6 +83,7 @@ public class LightSaber : MonoBehaviour
     {
         if(collision.gameObject.layer == LayerMask.NameToLayer("EnemyLaser"))
         {
+            source.PlayOneShot(laserHit);
             Destroy(collision.gameObject, 2);
         }
     }

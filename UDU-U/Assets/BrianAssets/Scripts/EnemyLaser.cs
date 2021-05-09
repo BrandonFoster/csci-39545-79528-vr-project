@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class EnemyLaser : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public GameObject deathFX;
+    public AudioClip deathSound;
 
     private void OnTriggerEnter(Collider other)
     {
         gameObject.GetComponent<Rigidbody>().velocity = -(4 * transform.up);
-        other.gameObject.layer = LayerMask.NameToLayer("Weapon");
-        gameObject.GetComponent<Collider>().isTrigger = false;
+        gameObject.layer = LayerMask.NameToLayer("Weapon");
+        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            GameObject deathEffect = Instantiate(deathFX, transform.position, transform.rotation);
+            deathEffect.GetComponent<Renderer>().material.color = other.gameObject.GetComponent<Renderer>().material.color;
+            AudioSource.PlayClipAtPoint(deathSound, transform.position, 0.5f);
+
+            Destroy(deathEffect, 2);
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+        }
     }
 }
