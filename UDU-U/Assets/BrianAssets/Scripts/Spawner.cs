@@ -143,6 +143,8 @@ public class Spawner : MonoBehaviour
         mediumSpeedUp = false;
         hardSpeedUp = false;
         finalSpeedUp = false;
+        minTime = 1f;
+        maxTime = 4f;
     }
 
     public bool getContinueTime()

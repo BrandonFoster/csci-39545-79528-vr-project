@@ -67,9 +67,9 @@ public class Player : MonoBehaviour
 
             spawner.SetActive(false);
             gameOver.SetActive(true);
-            startCube.SetActive(true);
-            backCube.SetActive(true);
             heart1.SetActive(false);
+
+            StartCoroutine(WaitAndReset());
         }
         else if(health == 100)
         {
@@ -87,6 +87,13 @@ public class Player : MonoBehaviour
         {
             heart5.SetActive(false);
         }
+    }
+
+    IEnumerator WaitAndReset()
+    {
+        yield return new WaitForSeconds(5);
+        startCube.SetActive(true);
+        backCube.SetActive(true);
     }
 
     public void addPoint()
