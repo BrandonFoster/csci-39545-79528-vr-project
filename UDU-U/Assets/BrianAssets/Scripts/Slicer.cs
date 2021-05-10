@@ -9,6 +9,7 @@ public class Slicer : MonoBehaviour
     public LayerMask sliceMask;
     public bool isTouched;
     public AudioClip saberSound;
+    Player player;
 
     private void Update()
     {
@@ -31,7 +32,12 @@ public class Slicer : MonoBehaviour
                 MakeItPhysical(upperHullGameobject);
                 MakeItPhysical(lowerHullGameobject);
 
-                AudioSource.PlayClipAtPoint(saberSound, objectToBeSliced.transform.position, 0.5f);
+                player = FindObjectOfType<Player>();
+                if (player)
+                {
+                    player.addPoint();
+                }
+                AudioSource.PlayClipAtPoint(saberSound, objectToBeSliced.transform.position, 0.4f);
 
                 Destroy(objectToBeSliced.gameObject);
                 Destroy(upperHullGameobject, 2);

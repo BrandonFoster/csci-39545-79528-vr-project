@@ -6,11 +6,16 @@ public class EnemyLaser : MonoBehaviour
 {
     public GameObject deathFX;
     public AudioClip deathSound;
+    public AudioClip saberHitSound;
 
     private void OnTriggerEnter(Collider other)
     {
         gameObject.GetComponent<Rigidbody>().velocity = -(4 * transform.up);
         gameObject.layer = LayerMask.NameToLayer("Weapon");
+        if (other.gameObject.layer == LayerMask.NameToLayer("Weapon"))
+        {
+            AudioSource.PlayClipAtPoint(saberHitSound, transform.position, 0.5f);
+        }
         if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             GameObject deathEffect = Instantiate(deathFX, transform.position, transform.rotation);

@@ -23,7 +23,7 @@ public class LightSaber : MonoBehaviour
     {
         source = gameObject.AddComponent<AudioSource>();
         source.spatialBlend = 1;
-        source.volume = 0.3f;
+        source.volume = 0.4f;
         slicer = transform.Find("Slicer").gameObject;
         fullSize = laser.transform.localScale;
         laser.transform.localScale = new Vector3(fullSize.x, 0, fullSize.z);
@@ -35,7 +35,7 @@ public class LightSaber : MonoBehaviour
         laserControl();
 
         var velocity = gameObject.GetComponent<Rigidbody>().velocity;
-        if(activate && velocity.magnitude > 1.5)
+        if(activate && velocity.magnitude > 2)
         {
             source.PlayOneShot(saberMovingSound, 0.3f);
         }
@@ -83,7 +83,7 @@ public class LightSaber : MonoBehaviour
     {
         if(collision.gameObject.layer == LayerMask.NameToLayer("EnemyLaser"))
         {
-            source.PlayOneShot(laserHit);
+            source.PlayOneShot(laserHit, 0.5f);
             Destroy(collision.gameObject, 2);
         }
     }

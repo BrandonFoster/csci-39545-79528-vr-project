@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
         player = FindObjectOfType<Player>();
         spawner = FindObjectOfType<Spawner>();
         finalSpeedUp = spawner.getFinal();
-        if (!finalSpeedUp)
+        if (finalSpeedUp)
         {
             GameObject spawnedBullet = Instantiate(laser, transform.position, laserPivot.transform.rotation);
             spawnedBullet.GetComponent<Rigidbody>().velocity = 4 * transform.forward;
