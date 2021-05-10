@@ -28,7 +28,7 @@ public class Spawner : MonoBehaviour
     bool mediumSpeedUp = false;
     bool hardSpeedUp = false;
     bool finalSpeedUp = false;
-    private float finalSpeedUpCountdown = 10f;
+    private float finalSpeedUpCountdown = 15f;
 
     // Start is called before the first frame update
     void Start()
@@ -97,7 +97,7 @@ public class Spawner : MonoBehaviour
             finalSpeedUpCountdown -= Time.deltaTime;
             if(finalSpeedUpCountdown <= 0f)
             {
-                finalSpeedUpCountdown = 10f;
+                finalSpeedUpCountdown = 15f;
                 if (minTime >= 0f)
                 {
                     minTime -= 0.1f;
