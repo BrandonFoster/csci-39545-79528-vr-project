@@ -12,7 +12,7 @@ public class EnemyLaser : MonoBehaviour
     {
         gameObject.GetComponent<Rigidbody>().velocity = -(4 * transform.up);
         gameObject.layer = LayerMask.NameToLayer("Weapon");
-        if (other.gameObject.layer == LayerMask.NameToLayer("Weapon"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Sword"))
         {
             AudioSource.PlayClipAtPoint(saberHitSound, transform.position, 0.5f);
         }
