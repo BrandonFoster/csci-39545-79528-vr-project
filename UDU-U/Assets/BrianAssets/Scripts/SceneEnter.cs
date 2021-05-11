@@ -1,9 +1,9 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneLoader : MonoBehaviour
+public class SceneEnter : MonoBehaviour
 {
     public float delayInSeconds = 2f;
 
@@ -15,14 +15,11 @@ public class SceneLoader : MonoBehaviour
     IEnumerator WaitAndLoad(string name)
     {
         yield return new WaitForSeconds(delayInSeconds);
-        SceneManager.LoadScene("ShooterScene");
+        SceneManager.LoadScene(name);
     }
 
     private void OnCollisionEnter(Collision collision)
-    {        
-        if(collision.gameObject.layer == LayerMask.NameToLayer("SceneChanger"))
-        {
-            LoadScene(collision.gameObject.name);
-        }
+    {
+        LoadScene(gameObject.name);
     }
 }

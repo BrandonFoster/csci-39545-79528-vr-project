@@ -20,6 +20,6 @@ public class HubSceneChanger : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        LoadScene("Hub");
+        LoadScene(gameObject.name);
     }
 }

@@ -19,19 +19,22 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(target != null)
+        if (target != null)
         {
             transform.LookAt(target);
         }
 
         player = FindObjectOfType<Player>();
         spawner = FindObjectOfType<Spawner>();
-        finalSpeedUp = spawner.getFinal();
-        if (finalSpeedUp)
+        if (spawner)
         {
-            GameObject spawnedBullet = Instantiate(laser, transform.position, laserPivot.transform.rotation);
-            spawnedBullet.GetComponent<Rigidbody>().velocity = 4 * transform.forward;
-            Destroy(spawnedBullet, 5);
+            finalSpeedUp = spawner.getFinal();
+            if (finalSpeedUp)
+            {
+                GameObject spawnedBullet = Instantiate(laser, transform.position, laserPivot.transform.rotation);
+                spawnedBullet.GetComponent<Rigidbody>().velocity = 4 * transform.forward;
+                Destroy(spawnedBullet, 5);
+            }
         }
     }
 

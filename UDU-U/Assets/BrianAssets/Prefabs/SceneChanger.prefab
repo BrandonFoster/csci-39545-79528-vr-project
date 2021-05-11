@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 7808857467255924031}
   - component: {fileID: 697906911672899640}
   - component: {fileID: 6505880663733091660}
-  - component: {fileID: 732178154841677218}
   - component: {fileID: 4644004517428305643}
-  - component: {fileID: -5200473428792892801}
+  - component: {fileID: 6485739532995766671}
   m_Layer: 10
   m_Name: SceneChanger
   m_TagString: Untagged
@@ -97,18 +96,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &732178154841677218
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6310974698410236983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eadd7b66d267a754fa2517686d499968, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &4644004517428305643
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -125,7 +112,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-5200473428792892801
+--- !u!114 &6485739532995766671
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,7 +121,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6310974698410236983}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 050b9357d8860ee41910d40f25f6e089, type: 3}
+  m_Script: {fileID: 11500000, guid: eadd7b66d267a754fa2517686d499968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayInSeconds: 2
