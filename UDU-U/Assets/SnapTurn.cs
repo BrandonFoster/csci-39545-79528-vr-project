@@ -24,12 +24,12 @@ public class SnapTurn : MonoBehaviour
         device.TryGetFeatureValue(CommonUsages.triggerButton, out bool triggered);
         if ((inputAxis[0] > 0.3) && (curVAL <= 0.3))
         {
-            inputRig.RotateAroundCameraUsingRigUp(45);
+            inputRig.RotateAroundCameraUsingRigUp(40);
             curVAL = inputAxis[0];
         }
         else if (((inputAxis[0] < -0.3) && (curVAL >= -0.3)))
         {
-            inputRig.RotateAroundCameraUsingRigUp(-45);
+            inputRig.RotateAroundCameraUsingRigUp(-40);
             curVAL = inputAxis[0];
         }
         if (triggered) lineRendering.enabled = true;
